@@ -3,15 +3,14 @@ import ItemList from '../../Components/ItemList';
 import { useParams } from "react-router-dom"
 
 
-// https://fakestoreapi.com/docs
 
 function ItemListContainer() {
-  
+
     const [productos, setProductos] = useState([])
     const [cart, setCart] = useState([])
     const { id } = useParams()
 
-    
+
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
@@ -21,12 +20,11 @@ function ItemListContainer() {
             })
             .catch(e => console.error(e))
 
-  
+
 
     }, [])
     useEffect(() => {
-        if (id)
-        {
+        if (id) {
             fetch(`https://fakestoreapi.com/products/category/${id}`)
                 .then(res => res.json())
                 .then(data => {
@@ -39,10 +37,10 @@ function ItemListContainer() {
 
 
     return (
-        <div className="App" style={{backgroundColor:'purple' }}>
+        <div className="App" style={{ backgroundColor: 'purple' }}>
             <header className="App-header">
                 <div>
-                    <ItemList productos={productos} cart={cart} setCart={setCart}  />
+                    <ItemList productos={productos} cart={cart} setCart={setCart} />
                 </div>
             </header>
         </div>
@@ -51,5 +49,3 @@ function ItemListContainer() {
 export default ItemListContainer
 
 
-
-// video clase 9 desde min 1-15-20  aprox empieza a explicar filtro caegorriA

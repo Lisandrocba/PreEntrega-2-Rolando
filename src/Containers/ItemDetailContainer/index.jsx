@@ -12,15 +12,7 @@ const ItemDetailContainer =()=> {
     const [products,setProducts] = useState(null)
 const {itemId}= useParams()
     useEffect(()=>{
-        //aca hay que cargar el producto por id(tendria que traer los datos en array)
-        
-    //     getProductById(itemId)
-    //     .then(response => {
-    //         setProducts(response)
-    //     })
-    //     .catch(error => {
-    //         console.error(error)
-    // })
+
 }, [itemId])
 
 
