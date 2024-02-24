@@ -4,31 +4,27 @@ import { useParams } from "react-router-dom"
 
 
 
-function ItemListContainer() {
+const ItemListContainer= () =>{
 
     const [productos, setProductos] = useState([])
     const [cart, setCart] = useState([])
     const { id } = useParams()
 
 
-
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-            .then(res => res.json())
-            .then(data => {
-                setProductos(data)
-            })
-            .catch(e => console.error(e))
-
-
-
-    }, [])
     useEffect(() => {
         if (id) {
             fetch(`https://fakestoreapi.com/products/category/${id}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
+                    setProductos(data)
+                })
+                .catch(e => console.error(e))
+        }
+        else {
+            fetch('https://fakestoreapi.com/products')
+                .then(res => res.json())
+                .then(data => {
                     setProductos(data)
                 })
                 .catch(e => console.error(e))
